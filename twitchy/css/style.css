@@ -1,0 +1,57 @@
+body{
+  background-color: #7D3DAF;
+  color: white;
+  padding
+}
+
+#watchListTb{
+  width: 50%;
+  height: 35px;
+  color: #7D3DAF;
+  padding-left: 10px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: transparent;
+}
+
+#streamer-list{
+  list-style: none;
+  margin-top: 40px;
+}
+
+.streamer-list-item{
+  background-color: white;
+  color: #7D3DAF;
+  padding: 16px;
+  border-radius: 10px;
+  width: 40%;
+  margin-bottom: 20px;
+}
+
+.streamer-avi{
+  border-radius: 180px;
+  width: 64px;
+}
+
+.stream-details-container{
+  text-align: left;
+}
+
+.streamer-name{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#monitorBtn{
+  height: 35px;
+  background-color: white;
+  color: #7D3DAF;
+  border-radius: 10px;
+  margin-left: 20px;
+}
+
+#monitorBtn:hover, .streamer-list-item:hover{
+  background-color: gray;
+  color: white;
+  cursor: pointer;
+}

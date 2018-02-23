@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Pomodoro Clock</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+  
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  <div class="container-fluid">
+  <div id="clock">
+    <div id="viewport">
+      <button id="resetBtn" class="btn">RESET</button>
+      <h1 id="timer">25:00</h1>
+      <p id="motivation">Get shit done!</p>
+    </div>
+    <div id="settings">
+      <div class="row">
+        <div class="col-xs-4 col-sm-4">
+          <p>Session</p>
+        </div>
+        <div class="col-xs-8 col-sm-8">
+          <div class="row">
+            <div id="removeSession" class="col-xs-2 col-sm-2  btn keypad">
+              -
+            </div>
+            <div class="col-xs-6 col-sm-6">
+              <p id="sessionLbl">25 minutes</p>
+            </div>
+            <div id="addSession" class="col-xs-2 col-sm-2 btn keypad">
+              +
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4 col-sm-4">
+          <p>Break</p>
+        </div>
+        <div class="col-xs-8 col-sm-8">
+          <div class="row">
+            <div id="removeBreak" class="col-xs-2 col-sm-2 keypad btn">
+              -
+            </div>
+            <div class="col-xs-6 col-sm-6">
+              <p id="breakLbl">5 minutes</p>
+            </div>
+            <div id="addBreak" class="col-xs-2 col-sm-2 keypad btn">
+              +
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="actions">
+      <button id="pauseBtn" class="btn">PAUSE</button>
+      <button id="startBtn" class="btn">START</button>
+    </div>
+  </div>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>

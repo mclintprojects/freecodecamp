@@ -1,0 +1,41 @@
+body{
+    background-color: white;
+  }
+  
+  #calculator{
+    background-color: #EDD834;
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 200px;
+    font-family: 'Open Sans', sans-serif;
+    padding: 16px;
+    color: #F24D16;
+    border-radius: 10px;
+  }
+  
+  #operationsLbl{
+    font-size: 20px;
+  }
+  
+  #resultLbl{
+    font-size: 35px;
+    font-weight: bold;
+  }
+  
+  hr{
+    border-color: #EEB62C;
+  }
+  
+  .keypad{
+    font-size: 18px;
+  }
+  
+  .keypad:hover{
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .row{
+    margin-top: 15px;
+  }

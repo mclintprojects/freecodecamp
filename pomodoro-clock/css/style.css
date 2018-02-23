@@ -1,0 +1,87 @@
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f6f6f6;
+}
+
+#clock {
+  color: #ff1744;
+  margin: 0 auto;
+  margin-top: 200px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0px 2px 2px #d8d8d8;
+  overflow: hidden;
+}
+
+.btn {
+  background-color: transparent;
+  width: 96px;
+  height: 36px;
+  border-radius: 1px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.btn:hover {
+  background-color: rgba(245, 245, 245, 0.2);
+  color: #ff1744;
+}
+
+#resetBtn {
+}
+
+#viewport {
+  overflow: hidden;
+  background-color: #ff8a80;
+  padding: 8px;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+#timer {
+  text-align: center;
+  font-weight: bold;
+  font-size: 45px;
+}
+
+#motivation {
+  font-size: 16px;
+  text-align: center;
+  font-family: "Arial";
+  margin-top: 16px;
+}
+
+#settings {
+  background-color: white;
+  color: rgba(0, 0, 0, 0.54);
+  padding: 16px;
+}
+
+.keypad {
+  width: 43px;
+  height: 36px;
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 14px;
+  text-align: center;
+}
+
+.keypad:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+#sessionLbl,
+#breakLbl {
+  text-align: center;
+  font-size: 16px;
+}
+
+#actions {
+  margin: 16px 16px 16px 8px;
+}
+
+#actions .btn:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+#pauseBtn {
+  display: none;
+}

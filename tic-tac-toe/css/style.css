@@ -1,0 +1,78 @@
+body {
+  background-color: #868d94;
+}
+
+.quad {
+  height: 72px;
+}
+
+.playerTagChoice {
+  width: 24px;
+  margin-right: 16px;
+}
+
+.playerTagChoice:hover {
+  width: 36px;
+  padding: 4px;
+  border-color: white;
+  border-style: solid;
+  border-width: 2px;
+}
+
+#playerChoices {
+  width: 30%;
+  margin: 0 auto;
+}
+
+#choosePlayerTag {
+  margin-top: 24px;
+}
+
+#gameBoard {
+  background-color: white;
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 60px;
+  overflow: hidden;
+  display: none;
+}
+
+.quad {
+  padding: 8px;
+}
+
+.quad p {
+  font-size: 30px;
+}
+
+.quad:hover {
+}
+
+.quad-container {
+  border-width: 2px;
+  border-style: solid;
+}
+
+.quad-container:hover {
+  background-color: #212121;
+  color: white;
+  cursor: pointer;
+}
+
+#messageLbl,
+#playAgainBtn {
+  display: none;
+}
+
+#oChoice:hover {
+  background-color: #ffc107;
+}
+
+#xChoice:hover {
+  background-color: #039be5;
+}
+
+#messageLbl{
+  font-size: 20px;
+  color: white;
+}
