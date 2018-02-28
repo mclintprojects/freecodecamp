@@ -31,7 +31,7 @@ function addListeners() {
 
 		if (!quadrantOccupied(quadId) && !cpuPlaying) {
 			addPlayToBoard(quadId, currentTag);
-			checkIfGameHasBeenWon();
+			checkIfGameHasBeenWonAndProceed();
 		}
 	});
 
@@ -51,7 +51,7 @@ function quadrantOccupied(quadId) {
 	return gameplays[quadId - 1] != 0;
 }
 
-function checkIfGameHasBeenWon() {
+function checkIfGameHasBeenWonAndProceed() {
 	if (!gameEnded()) {
 		var gameWon = isGameWon();
 		if (!gameWon.won) {
@@ -74,38 +74,120 @@ function gameEnded() {
 function playCPUTurn() {
 	messageLbl.text('Thinking...');
 	cpuPlaying = true;
-	thinkingTimer = setInterval(doneThinking, 1300);
+	thinkingTimer = setInterval(doneThinking, 300);
 }
 
 function doneThinking() {
 	clearInterval(thinkingTimer);
-	var playPos = getPlayPos();
+	var playPos = getPlayPos(gameplays, -1);
 
-	addPlayToBoard(playPos, currentTag);
-	checkIfGameHasBeenWon();
+	addPlayToBoard(playPos.index + 1, currentTag);
+	checkIfGameHasBeenWonAndProceed();
 	cpuPlaying = false;
 }
 
-function getPlayPos() {
+function getEmptyIndexes() {
 	var index = 0;
 	var emptySpots = [];
 	gameplays.forEach(function(val) {
-		index++;
 		if (val == 0) {
 			emptySpots.push(index);
 		}
-		emptySpots.sort((a, b) => a > b);
+
+		index++;
 	});
 
-	console.log('Empty spots: ', emptySpots);
-	var randomEmptySpot = emptySpots[getRandom(0, emptySpots.length)];
-	console.log('Random empty spot', randomEmptySpot);
-	return randomEmptySpot;
+	emptySpots.sort((a, b) => a > b);
+	return emptySpots;
 }
 
-function getRandom(min, max) {
-	console.log('Min max', min, max);
-	return Math.floor(Math.random() * (max - min) + min);
+function winning(gameplays, player) {
+	if (
+		(gameplays[0] == player &&
+			gameplays[1] == player &&
+			gameplays[2] == player) ||
+		(gameplays[3] == player &&
+			gameplays[4] == player &&
+			gameplays[5] == player) ||
+		(gameplays[6] == player &&
+			gameplays[7] == player &&
+			gameplays[8] == player) ||
+		(gameplays[0] == player &&
+			gameplays[3] == player &&
+			gameplays[6] == player) ||
+		(gameplays[1] == player &&
+			gameplays[4] == player &&
+			gameplays[7] == player) ||
+		(gameplays[2] == player &&
+			gameplays[5] == player &&
+			gameplays[8] == player) ||
+		(gameplays[0] == player &&
+			gameplays[4] == player &&
+			gameplays[8] == player) ||
+		(gameplays[2] == player && gameplays[4] == player && gameplays[6] == player)
+	) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+var humanPlayer = 1,
+	aiPlayer = -1;
+
+// Uses a modification of ahmadabdolsaheb's getPlayPos implementation
+function getPlayPos(gameplays, player) {
+	//available spots
+	var emptySpots = getEmptyIndexes(gameplays);
+
+	// checks for the terminal states such as win, lose, and tie and returning a value accordingly
+	if (winning(gameplays, humanPlayer)) {
+		return { score: -10 };
+	} else if (winning(gameplays, aiPlayer)) {
+		return { score: 10 };
+	} else if (emptySpots.length === 0) {
+		return { score: 0 };
+	}
+
+	var moves = [];
+
+	for (var i = 0; i < emptySpots.length; i++) {
+		var move = {};
+		move.index = emptySpots[i];
+		gameplays[emptySpots[i]] = player;
+
+		if (player == aiPlayer) {
+			var result = getPlayPos(gameplays, humanPlayer);
+			move.score = result.score;
+		} else {
+			var result = getPlayPos(gameplays, aiPlayer);
+			move.score = result.score;
+		}
+
+		gameplays[emptySpots[i]] = 0;
+		moves.push(move);
+	}
+
+	var bestMove;
+	if (player === aiPlayer) {
+		var bestScore = -10000;
+		for (var i = 0; i < moves.length; i++) {
+			if (moves[i].score > bestScore) {
+				bestScore = moves[i].score;
+				bestMove = i;
+			}
+		}
+	} else {
+		var bestScore = 10000;
+		for (var i = 0; i < moves.length; i++) {
+			if (moves[i].score < bestScore) {
+				bestScore = moves[i].score;
+				bestMove = i;
+			}
+		}
+	}
+
+	return moves[bestMove];
 }
 
 function isGameWon() {
