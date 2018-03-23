@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>speedread</title>
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css'>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans|Libre+Franklin" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+</head>
+
+<body>
+  <div>
+    <img id="toggleReadBarBtn" alt="down-arrow" src="https://image.flaticon.com/icons/svg/25/25223.svg" />
+    <div id="readBar" class="text-center navbar-fixed">
+      <textarea id="searchTb" placeholder="What text do you want to speed read?"></textarea>
+      <br>
+      <button id="readBtn" class="appBtn">Read</button>
+    </div>
+    <div>
+      <div id="settingsBar">
+        <div id="color1" class="colorBox"></div>
+        <div id="color2" class="colorBox"></div>
+        <div id="color3" class="colorBox"></div>
+        <div id="color4" class="colorBox"></div>
+        <div id="color5" class="colorBox"></div>
+
+        <div id="speedBar">
+          <label for="speedTb">Speed (wpm): </label>
+          <input id="speedTb" name="speedTb" type="text" value="400" />
+        </div>
+
+        <p id="readCountLbl">0/0 words</p>
+        <div>
+          <button id="pickerBtn" class="appBtn">Read file</button>
+          <input id="picker" type="file" />
+          <button id="cancelBtn" class="appBtn">Cancel</button>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div id="readView" class="row">
+        <p id="wordLbl">speedread</p>
+      </div>
+    </div>
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+  <script src="index.js"></script>
+</body>
+
+</html>
